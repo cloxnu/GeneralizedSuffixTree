@@ -1,5 +1,5 @@
 # GeneralizedSuffixTree
- An implementation of generalized suffix tree using Ukkonen algorithm.
+ An implementation of generalized suffix tree using Ukkonen's algorithm.
  
  ---
  
