@@ -20,7 +20,7 @@ https://www.cs.helsinki.fi/u/ukkonen/SuffixT1withFigs.pdf
 
 ## The longest common substring problem
 
-Given two or more strings, find the longest substring of these strings. Specifically, the longest common substring of the two strings *"cacaocac"* and *"ccaooc"* is *"cao"*. This seemingly simple problem, but still needs a more complex algorithm until today.
+Given two or more strings, find the longest substring of these strings. Specifically, the longest common substring of the two strings *"cacaocac"* and *"ccaooc"* is *"cao"*. This seems like such a simple problem, but it still requires a complicated algorithm today.
 
 This repo has implemented an algorithm to solve this problem by constructing a tree called Generalized Suffix Tree (GST). GST is a tree structure which contains sets of suffix strings of the origin string. Usually, the string will be appended a unique character *"$"* for representing "the end", this is to avoid the last node not splitting due to repeated ending characters.
 
