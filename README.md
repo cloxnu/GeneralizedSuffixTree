@@ -72,7 +72,7 @@ The method `_update`, `_test_and_split` and `_canonize` of the class `STree` in 
 
 But differently, the new `end_idxes` property in the `STree` indicates the indexes of all ending characters *"$"*. It avoids effectively the construction bias of the suffix tree when the string contains or is filled with *"$"* symbols.
 
-So, back to the topic, how does this tree find solve the longest common substring problem?
+So, back to the topic, how does this tree solve the longest common substring problem?
 
 In the `Application.py`, the `lcs2` function find the lcs of two strings. The method `build_with_automatic_end` in the `STree` will concatenate a list of strings with the ending characters *"$"*, and construct a suffix tree. The `lcs2` function will traverse the tree and find the deepest non-leaf node that contains the leaf nodes of all string indexes in the string list.
 
