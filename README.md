@@ -5,7 +5,7 @@ An implementation of generalized suffix tree using Ukkonen's algorithm.
 **In this page:**
 
 - [The longest common substring problem](#the-longest-common-substring-problem)
-- [How it works?](#how-it-works)
+- [How it works](#how-it-works)
 - [GST versus Dynamic programming](#gst-versus-dynamic-programming)
 
 ---
@@ -30,7 +30,7 @@ The visualized GST of *"cacaocac$"* as follows, made in http://brenden.github.io
 
 ![GST-for-cacaocac](res/GST4cacaocac.png)
 
-## How it works?
+## How it works
 
 After cloning this repo, we can get the same result by running these codes in the `Application.py`:
 
