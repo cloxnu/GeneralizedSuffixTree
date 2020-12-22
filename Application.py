@@ -1,5 +1,6 @@
 from STree import *
 
+
 # 两个字符串间的最长公共子串
 def lcs2(string1, string2, debug=False):
     string = string1 + "$" + string2 + "$"
@@ -26,6 +27,7 @@ def lcs2(string1, string2, debug=False):
         return max(res, key=lambda x: len(x)) if res else '', is_string2
 
     return dfs(tree.root)[0]
+
 
 # 最长公共子串
 def lcs(strings, debug=False):
@@ -62,5 +64,5 @@ if __name__ == '__main__':
     print(tree)
 
     # print(lcs2("12335665464566321", "12366546456653321"))
-    # print(lcs2("abcd", "bcd", debug=True))
+    print(lcs2("cacaocac", "ccaooc"))
     # print(lcs(["abcdfds", "bfdbcdfew", "bcdrgde"], debug=True))

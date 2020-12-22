@@ -17,7 +17,7 @@ def random_str(length_range, common_length_range, k):
         res.append(s_l + common + s_r)
     return res
 
-s = random_str((5000, 8000), (250, 800), 2)
+s = random_str((10000, 20000), (500, 1000), 2)
 
 s1, s2 = s[0], s[1]
 
