@@ -35,6 +35,7 @@ class Application:
     def lcss(strings, debug=False):
         string = '$'.join(strings) + '$'
         str_lens = list(accumulate(strings, lambda x, y: x + len(y) + 1, initial=0))
+        tree = STree()
         tree.build_with_automatic_end(strings)
         if debug: print(tree)
 
@@ -57,7 +58,6 @@ class Application:
 
 if __name__ == '__main__':
     tree = STree()
-    # tree = STree("asjknx$")
     tree.build_with_automatic_end(["abacdacdacdbc"])
     # tree.build_with_automatic_end(["cacaocac", "ccaooc"])
     # tree.build("1234332214$")
