@@ -20,9 +20,9 @@ https://www.cs.helsinki.fi/u/ukkonen/SuffixT1withFigs.pdf
 
 ## The longest common substring problem
 
-Given two or more strings, find the longest substring of these strings. Specifically, the longest common substring of the two strings *"cacaocac"* and *"ccaooc"* is *"cao"*. This seems like such a simple problem, but it still requires a complicated algorithm today.
+Given two or more strings, find the longest common substring of these strings. Concretely, the longest common substring of the two strings *"cacaocac"* and *"ccaooc"* is *"cao"*. This seems like a simple problem, but until today, it still requires a complicated algorithm to be solved in a reasonable time.
 
-This repo has implemented an algorithm to solve this problem by constructing a tree called Generalized Suffix Tree (GST). GST is a tree structure which contains sets of suffix strings of the origin string. Usually, the string will be appended a unique character *"$"* for representing "the end", this is to avoid the last node not splitting due to repeated ending characters.
+This repo has implemented an algorithm to solve this problem by constructing a tree called Generalized Suffix Tree (GST). GST is a tree structure which contains sets of suffix strings of the origin string. Usually, the string will be appended a unique character *"$"* for representing "the end", this is to avoid some nodes not splitting due to repeated ending characters.
 
 There are 2 algorithms for constructing a GST: **McCreight's algorithm (1976)**, **Ukkonen's algorithm (1995)**. The latter has been implemented here.
 
@@ -40,7 +40,7 @@ tree.build_with_automatic_end(["cacaocac"])
 print(tree)
 ```
 
-and something will appear in the console:
+and then, something will appear in the console:
 
 ```
 cacaocac$ ----> ⊥
@@ -70,7 +70,7 @@ $ (end)
 
 The method `_update`, `_test_and_split` and `_canonize` of the class `STree` in `STree.py`, are the complete implementation of the procedure of the same name in the page [12] and [13] in the paper, and the method `build` corresponds to the [Algorithm 2.] in the page [14].
 
-But differently, the new `end_idxes` property in the `STree` indicates the indexes of all ending characters *"$"*. It avoids effectively the construction bias of the suffix tree when the string contains or is filled with *"$"* symbols.
+But differently, the new `end_idxes` property in the `STree` contains the indexes of all ending characters *"$"*. It avoids effectively the construction bias of the suffix tree when the string contains or is filled with *"$"* symbols.
 
 So, back to the topic, how does this tree solve the longest common substring problem?
 
@@ -98,7 +98,7 @@ cao
 
 ## GST versus Dynamic programming
 
-There is always said that the dynamic programming costs <img src="https://render.githubusercontent.com/render/math?math=\Theta(mn)">, and the Ukkonen's Algorithm just in linear time. So, let's start an experiment.
+Dynamic programming is another way to solve this problem, and there is always said that the dynamic programming costs <img src="https://render.githubusercontent.com/render/math?math=\Theta(mn)">, and the Ukkonen's Algorithm just in linear time. So, let's start an experiment.
 
 The code in the `gst_vs_dp.py`, we randomly generated some strings to examine the performance of the two algorithms.
 
