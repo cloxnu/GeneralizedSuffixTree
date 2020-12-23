@@ -29,7 +29,7 @@ class STree:
             active_state, left = self._update(active_state, left, idx)
             active_state, left = self._canonize(active_state, left, idx)
         if self.end_idxes:
-            self.root.transition['end'] = State(self.end_idxes[-1], float("inf"))
+            self.root.transition['end{}'.format(self.end_idxes[-1])] = State(self.end_idxes[-1], float("inf"))
 
     def build_with_automatic_end(self, strings):
         string = '$'.join(strings) + '$'
@@ -41,9 +41,7 @@ class STree:
         def state_desc(state: State):
             if state.left is None: return "⊥"
             if state.left == -1: return self.string
-            return (self.string[state.left:] if state.right == float('inf') else self.string[
-                                                                                 state.left:state.right + 1]) + (
-                       " (end)" if state.right == float("inf") else "")
+            return (self.string[state.left:] if state.right == float('inf') else self.string[state.left:state.right + 1]) + (" (end)" if state.right == float("inf") else "")
 
         def suffix_link_desc(state: State, prefix=""):
             return prefix + state_desc(state.suffix_link) if state.suffix_link else ""
@@ -62,7 +60,7 @@ class STree:
         is_end_point, split_state = self._test_and_split(active_state, left, idx - 1, self.string[idx])
         while not is_end_point:
             new_state = State(idx, float('inf'))
-            split_state.transition[self.string[idx] if idx not in self.end_idxes else 'end'] = new_state
+            split_state.transition[self.string[idx] if idx not in self.end_idxes else 'end{}'.format(idx)] = new_state
             if old_active_point != self.root:
                 old_active_point.suffix_link = split_state
             old_active_point = split_state
